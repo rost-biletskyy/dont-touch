@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    h1,
+    p {
+      line-height: 1.66em;
+      margin: 0;
+      font-family: 'Lato';
+      font-size: 24px;
+    }
+
+    button {
+      background: linear-gradient(to bottom right, #a820d1, rgb(88, 156, 173));
+      margin: 10px;
+      width: 150px;
+      border: 0;
+      border-radius: 12px;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-family: system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 2.5;
+      text-align: center;
+    }
+
+    .scream {
+      background-image: url('img/screamer.gif');
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .cookies {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #screamer {
+      display: none;
+    }
+  </style>
+
+  <script>
+    const show = () => {
+      document.getElementById("cookie").style.display = "none";
+      document.getElementById("screamer").style.display = "block";
+
+      let audio = document.getElementById('audio');
+      audio.play();
+
+      const element = document.documentElement;
+      if (element.requestFullscreen) {
+        element.requestFullscreen();
+      } else if (element.mozRequestFullScreen) { /* Firefox */
+        element.mozRequestFullScreen();
+      } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        element.webkitRequestFullscreen();
+      } else if (element.msRequestFullscreen) { /* IE/Edge */
+        element.msRequestFullscreen();
+      }
+
+    }
+  </script>
+</head>
+
+<body>
+  <main>
+    <div class="cookies" id="cookie">
+      <img src="img/cookie.jpg" alt="cookie">
+      <h1>We use cookies</h1>
+      <p>This website uses cookies to ensure</p>
+      <p>you get the best experience on our website.</p>
+      <button onclick="show()">ACCEPT</button>
+    </div>
+
+    <div id="screamer">
+      <img src="img/screamer.gif" class="scream" id="scream" />
+      <audio loop id="audio">
+        <source src="sound/screamer.mp3" type="audio/mp3">
+        <source src="sound/screamer.ogg" type="audio/ogg">
+      </audio>
+    </div>
+  </main>
+</body>
+
+</html>
