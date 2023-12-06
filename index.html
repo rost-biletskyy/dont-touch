@@ -56,11 +56,11 @@
 
   <script>
     const show = () => {
-      document.getElementById("cookie").style.display = "none";
-      document.getElementById("screamer").style.display = "block";
-
       let audio = document.getElementById('audio');
       audio.play();
+
+      document.getElementById("cookie").style.display = "none";
+      document.getElementById("screamer").style.display = "block";
 
       const element = document.documentElement;
       if (element.requestFullscreen) {
